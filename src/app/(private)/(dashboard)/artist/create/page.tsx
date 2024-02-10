@@ -17,12 +17,14 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   title: z.string().min(2).max(50), // change
 });
 
 const Page = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -35,6 +37,7 @@ const Page = () => {
       const res = await axios.post("/api/art", values);
       console.log(values);
       toast.success("Artwork successfully submitted!");
+      router.push(`/artist/arts/${res.data.id}`);
     } catch (error) {
       console.log(error);
       toast.error("Error submitting artwork. Please try again later.");

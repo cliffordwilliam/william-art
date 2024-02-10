@@ -190,3 +190,82 @@ this does not auto complete, need to destruct Toaster from react-hot-toast
 add provider as child sibling to the root layout
 
 then just import toast.error or success in place of console.log
+
+# setup prisma
+
+get client
+
+```bash
+npm i -D prisma
+```
+
+init
+
+```bash
+npx prisma init
+```
+
+new things:
+
+- updated .env -> change the connection string with the supabase URI / elephantSQL here
+- new schema.prisma file -> write your models here
+
+get client
+
+```bash
+npm i @prisma/client
+```
+
+need to create the client to return the db (db will be based on the schema) -> create the db.ts in the lib dir
+
+create a new prisma instance from PrismaClient
+
+declare a global for a var that will store the prisma instance (type is PrismaClient or undefined)
+
+set it to db and check if the global var alr have it? if not then create new instance
+
+then check if not in prod, then set the global to the db
+
+go to supabase and create new acc -> later go here DO NOT CLICK USE AS REF: https://supabase.com/dashboard/project/.../settings/database
+
+# setup simple model to test generate and push -> landlord/server provider
+
+install the prisma extention to have syntax in .prisma file for model defs
+
+generate locally -> update db/prisma prop
+
+```bash
+npx prisma generate
+```
+
+push -> to provider/landlord
+
+```bash
+npx prisma db push
+```
+
+if you make changes always do generate and push -> turn off the app first and everything else
+
+if you have data alr, and you update -> ALL DATA IS LOST -> but update will work
+
+now create the /api/art route
+
+if success, can check the data here
+
+```bash
+npx prisma studio
+```
+
+this thing runs on port 5555 for me, you refresh this whenever you edit the db -> it basically acts as UI for your db
+
+if you use supabase just see it from your dashboard
+
+# on success navigate to a new page -> artId edit page
+
+that page is server - will have many client comp to do PATCH -> on OK they will redirect to server page again forcing a refetch of new updated data
+
+# complete the model
+
+if you alr have data and you add a new col like updated at and use the @updatedat then it wont work, data need to be purged then this can be done
+
+# creating the edit page UI
