@@ -162,3 +162,31 @@ all of the arts that that artist have made will be displayed on that page in sha
 there will be an add art button there -> kick to create art page
 
 the only way you can enter the create page is from the arts page (my created arts page)
+
+# create page POST UI
+
+read: https://ui.shadcn.com/docs/components/form
+
+add the isSubmitting and the isValid from the form.formState
+
+add the disabled to the input tag - also the is valid to the submit button
+
+add a button to go back to the artist/arts
+
+# axios
+
+use axios to try to POST -> deliberately cause error -> /api/art
+
+# react-hot-toast
+
+use react hot toast to show the error
+
+read: https://react-hot-toast.com
+
+need to create a provider to use inside a comp dir create providers dir
+
+this does not auto complete, need to destruct Toaster from react-hot-toast
+
+add provider as child sibling to the root layout
+
+then just import toast.error or success in place of console.log
