@@ -21,13 +21,12 @@ const SidebarLinksList = () => {
     <>
       <div className="flex flex-col">
         {routes.map((route) => (
-          <>
-            <SidebarLinkItem
-              name={route.name}
-              href={route.href}
-              Icon={route.Icon}
-            />
-          </>
+          <SidebarLinkItem
+            key={route.href}
+            name={route.name}
+            href={route.href}
+            Icon={route.Icon}
+          />
         ))}
       </div>
     </>

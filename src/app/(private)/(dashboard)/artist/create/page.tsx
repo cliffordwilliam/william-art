@@ -20,7 +20,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
-  title: z.string().min(2).max(50), // change
+  title: z.string().min(2).max(50),
 });
 
 const Page = () => {
@@ -28,13 +28,13 @@ const Page = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: "", // change
+      title: "",
     },
   });
   const { isSubmitting, isValid } = form.formState;
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const res = await axios.post("/api/art", values);
+      const res = await axios.post("/api/arts", values);
       console.log(values);
       toast.success("Artwork successfully submitted!");
       router.push(`/artist/arts/${res.data.id}`);

@@ -269,3 +269,25 @@ that page is server - will have many client comp to do PATCH -> on OK they will 
 if you alr have data and you add a new col like updated at and use the @updatedat then it wont work, data need to be purged then this can be done
 
 # creating the edit page UI
+
+here you fetch the data using id
+
+SERVER page so use db
+
+whenever you use db, check if got user? then check if data is there
+
+prepare a grid to make room for each CLIENT PATCH forms comps
+
+padd the art into the CLIENT comps
+
+# create the edit title UI form
+
+CLIENT
+
+same as the one you made, follow this again
+
+read: https://ui.shadcn.com/docs/components/form
+
+or you can just copy from the title one
+
+# create API PATCH -> reusable for all
